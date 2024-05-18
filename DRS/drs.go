@@ -1,6 +1,9 @@
 package DRS
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 type TrackActions struct {
 	isPassed           bool
@@ -11,6 +14,7 @@ type TrackActions struct {
 func DRSHandler(w http.ResponseWriter, r *http.Request) {
 	var trackActions TrackActions
 
+	log.Println(r.Header.Get("Host"))
 	if r.Header.Get("Host") == "" {
 		trackActions.isPassed = false
 		trackActions.passedActionsCount = +1
@@ -18,4 +22,5 @@ func DRSHandler(w http.ResponseWriter, r *http.Request) {
 
 	}
 
+	log.Println(trackActions)
 }

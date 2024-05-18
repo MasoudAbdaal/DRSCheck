@@ -1,7 +1,7 @@
 package main
 
 import (
-	"DRSCheck/DRS"
+	"WAFCheck/DRS"
 	"net/http"
 )
 
